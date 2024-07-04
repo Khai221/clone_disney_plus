@@ -1,0 +1,61 @@
+@use 'hero';
+@use 'variaveis';
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
+    font-weight: 400;
+}
+
+* { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: variaveis.$corDeFundo;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+@mixin text($fontSize: 16px){
+    font-size: $fontSize;
+    line-height: $fontSize + 10px;
+    color: variaveis.$corTextoPrincipal;
+}
+
+@mixin title($fontSize: 40px){
+    @include text($fontSize);
+    color: variaveis.$corTextoSecundario;
+}
+
+.text--big {
+    @include text(18px);
+}
+
+.text {
+    @include text;
+}
+
+.text--small {
+    @include text(12px);
+}
+
+.title--big {
+    @include title(44px);
+}
+
+.title {
+    @include title;
+}
+
+.title--small {
+    @include title(28px);
+}
+
+.link--text {
+    @include text(18px);
+    text-decoration: underline;
+    color: variaveis.$corTextoSecundario;
+}
